@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Laravel</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet" type="text/css">
+        <!-- Styling -->
+        <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}">Login</a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}">Register</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+
+            <div class="content">
+                <div class="main m-b-md">
+                  <h2>Ok!!</h2>
+                    <p>First name: {{ $requests['firstname'] }}</p>
+                    <p>Last name: {{ $requests['lastname'] }}</p>
+                    <p>Email: {{ $requests['email'] }}</p>
+                    <p>id: {{  !empty($requests['id']) ? $requests['id'] : 'null' }}</p>
+                  <form action="/">
+                    <button type="submit">Back</button>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
