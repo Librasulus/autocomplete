@@ -15,3 +15,5 @@ Route::get('/', function () {
     return view('home');
 });
 Route::post('/result', 'PagesController@show');
+
+Route::get('/find', 'PagesController@searchUsers');

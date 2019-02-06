@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+
 
 class PagesController extends Controller
 {
@@ -13,5 +15,10 @@ class PagesController extends Controller
         'email'=>'required|email'
       ]);
       return view('result', compact('requests'));
+    }
+    
+    public function searchUsers(Request $request)
+    {
+      return User::where('lastname', 'LIKE', '%'.$request->q.'%')->get();
     }
 }
