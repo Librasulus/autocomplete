@@ -30,12 +30,12 @@
 
             <div class="content">
                 <div class="main m-b-md">
-                  <h2>Search for a user:</h2>
-                  <form method="POST" action="/result">
+                  <h3>Search for a user using last name:</h3>
+                  <form method="POST" action="/result" autocomplete="off">
                     {{ csrf_field() }}
                     <div class="form-group">
                       <label for="firstname">First name:</label>
-                      <input type="text" class="form-control" id="firstname" name="firstname"  placeholder="Enter first name" required>
+                      <input type="text" class="form-control" id="firstname" name="firstname" required readonly>
                     </div>
                     <div class="form-group">
                       <label for="lastname">Last name:</label>
@@ -43,9 +43,9 @@
                     </div>
                     <div class="form-group">
                       <label for="email">Email address:</label>
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                      <input type="email" class="form-control" id="email" name="email" required readonly>
                     </div>
-                    <input type="hidden" name="id">
+                    <input type="hidden" name="id" id="id">
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                       <button type="button submit" class="btn btn-primary">Save</button>
@@ -67,7 +67,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.2.1/bloodhound.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/corejs-typeahead/1.2.1/typeahead.jquery.min.js"></script>
- 
+
 
 <!-- Initialize typeahead.js on the input -->
 <script>
@@ -80,7 +80,7 @@
                 wildcard: '%QUERY%'
             },
         });
-        
+
         $('#lastname').typeahead({
             hint: true,
             highlight: true,
@@ -89,7 +89,7 @@
             name: 'users',
             source: bloodhound,
             display: function(data) {
-                return data.lastname  //Input value to be set when you select a suggestion. 
+                return data.lastname  //Input value to be set when you select a suggestion.
             },
             templates: {
                 empty: [
@@ -104,7 +104,12 @@
             }
         });
     });
+    $('#lastname').bind('typeahead:select', function(ev, suggestion) {
+            $('#firstname').val(suggestion.firstname);
+            $('#email').val(suggestion.email);
+            $('#id').val(suggestion.id);
+    });
 </script>
-        
+
     </body>
 </html>

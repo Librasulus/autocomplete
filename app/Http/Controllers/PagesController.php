@@ -12,11 +12,12 @@ class PagesController extends Controller
       $requests=request()->validate([
         'firstname'=>'required|max:15',
         'lastname'=>'required|max:20',
-        'email'=>'required|email'
+        'email'=>'required|email',
+        'id'=>''
       ]);
       return view('result', compact('requests'));
     }
-    
+
     public function searchUsers(Request $request)
     {
       return User::where('lastname', 'LIKE', '%'.$request->q.'%')->get();

@@ -50,3 +50,20 @@ input {
   float: left;
   margin-left: 2em;
 }
+/* styling of autocomplete suggestions */
+.tt-dataset {
+  background-color: white;
+  font-size: 18px;
+  border: solid 1px #dddddd;
+  padding-top: 5px;
+}
+.tt-suggestion {
+  padding: 5px 2px;
+}
+.tt-open.tt-menu {
+  left: 1em !important;
+  top: 150% !important;
+}
+span.twitter-typeahead {
+  float:left;
+}

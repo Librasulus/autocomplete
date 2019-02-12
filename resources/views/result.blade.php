@@ -30,7 +30,7 @@
 
             <div class="content">
                 <div class="main m-b-md">
-                  <h2>Ok!!</h2>
+                  <h2>Ok!</h2>
                     <p>First name: {{ $requests['firstname'] }}</p>
                     <p>Last name: {{ $requests['lastname'] }}</p>
                     <p>Email: {{ $requests['email'] }}</p>

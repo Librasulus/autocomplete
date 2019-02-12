@@ -8,28 +8,28 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'firstname' => 'Dimitris',
-            'lastname' => 'Andrikopoulos',
-            'email' => 'dandre@yahoo.gr',
+            'firstname' => 'John',
+            'lastname' => 'Garfield',
+            'email' => 'jgar@gmail.com',
         ]);
         User::create([
             'firstname' => 'Anne',
-            'lastname' => 'Tsirogianni',
-            'email' => 'anne@yahoo.gr',
+            'lastname' => 'Owen',
+            'email' => 'anne@yahoo.com',
         ]);
         User::create([
             'firstname' => 'George',
-            'lastname' => 'Papadakis',
-            'email' => 'geo1@yahoo.gr',
+            'lastname' => 'Durrell',
+            'email' => 'geod@msn.com',
         ]);
         User::create([
             'firstname' => 'Gina',
-            'lastname' => 'Palaiologou',
-            'email' => 'geo2@yahoo.gr',
+            'lastname' => 'Lanzit',
+            'email' => 'g.lanzit@gmail.com',
         ]);User::create([
-            'firstname' => 'George',
-            'lastname' => 'Vasileiou',
-            'email' => 'geo3@yahoo.gr',
+            'firstname' => 'Kevin',
+            'lastname' => 'Smith',
+            'email' => 'smi@outlook.com',
         ]);
     }
 }
